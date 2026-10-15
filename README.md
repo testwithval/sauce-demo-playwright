@@ -1,8 +1,8 @@
 # Sauce Demo Playwright
 
-Cvičný framework v Playwright a TypeScripte proti [Sauce Demo](https://www.saucedemo.com).
+A practice framework in Playwright and TypeScript against [Sauce Demo](https://www.saucedemo.com).
 
-## Spustenie
+## Run
 
 ```bash
 npm install
@@ -10,12 +10,12 @@ npx playwright install chromium
 npm test
 ```
 
-Viditeľný prehliadač: `npm run test:headed`. Krokový pohľad: `npm run test:ui`.
+Visible browser: `npm run test:headed`. Step-through view: `npm run test:ui`.
 
-## Ako sú testy poskladané
+## How the tests are put together
 
-- `playwright.config.ts` rozdeľuje beh na tri projects. `guest` testuje prihlásenie bez session. `setup` sa prihlási raz a session uloží. `shop` potom spúšťa ostatné scenáre už prihlásený.
-- `src/pages` a `src/components` držia lokátory a akcie stránok.
-- `src/fixtures/test.ts` tie stránky pripraví a test ich dostane ako argument.
-- `src/data/users.ts` drží účty, produkty a údaje zákazníka. `src/helpers/money.ts` z nich skladá texty cien a dane.
-- `tests/e2e` sú samotné scenáre.
+- `playwright.config.ts` splits the run into three projects. `guest` tests login without a session. `setup` signs in once and saves that session. `shop` then runs every other scenario already signed in.
+- `src/pages` and `src/components` hold the locators and actions for each screen.
+- `src/fixtures/test.ts` builds those screens and passes them into a test as arguments.
+- `src/data/users.ts` holds accounts, products, and customer details. `src/helpers/money.ts` turns the prices into the item total, tax, and total shown on the overview.
+- `tests/e2e` holds the scenarios. Each title starts with an area id, such as `SD-LOGIN-01` or `SD-CART-02`. The number restarts inside the area.
