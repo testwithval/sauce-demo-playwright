@@ -5,7 +5,7 @@ import { LoginPage } from '../src/pages/LoginPage';
 
 const authFile = '.auth/standard.json';
 
-setup('prihlás standard_user a ulož session', async ({ page }) => {
+setup('sign in as standard_user and save the session', async ({ page }) => {
   fs.mkdirSync('.auth', { recursive: true });
 
   const loginPage = new LoginPage(page);

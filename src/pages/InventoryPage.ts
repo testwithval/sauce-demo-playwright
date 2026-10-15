@@ -8,12 +8,14 @@ export class InventoryPage {
   readonly title: Locator;
   readonly sort: Locator;
   readonly itemNames: Locator;
+  readonly prices: Locator;
 
   constructor(private readonly page: Page) {
     this.header = new Header(page);
     this.title = page.getByTestId('title');
     this.sort = page.getByTestId('product-sort-container');
     this.itemNames = page.getByTestId('inventory-item-name');
+    this.prices = page.getByTestId('inventory-item-price');
   }
 
   async open() {
@@ -26,6 +28,11 @@ export class InventoryPage {
 
   async addToCart(name: string) {
     await this.item(name).getByRole('button', { name: 'Add to cart' }).click();
+  }
+
+  async openDetails(name: string) {
+    await this.item(name).getByTestId('inventory-item-name').click();
+    await this.page.waitForURL(/inventory-item\.html/);
   }
 
   async sortBy(order: SortOrder) {

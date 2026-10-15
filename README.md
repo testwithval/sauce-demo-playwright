@@ -14,8 +14,8 @@ Viditeľný prehliadač: `npm run test:headed`. Krokový pohľad: `npm run test:
 
 ## Ako sú testy poskladané
 
-- `playwright.config.ts` rozdeľuje beh na tri projects. `guest` testuje prihlásenie bez session. `setup` sa prihlási raz a session uloží. `shop` potom spúšťa košík a nákup už prihlásený.
+- `playwright.config.ts` rozdeľuje beh na tri projects. `guest` testuje prihlásenie bez session. `setup` sa prihlási raz a session uloží. `shop` potom spúšťa ostatné scenáre už prihlásený.
 - `src/pages` a `src/components` držia lokátory a akcie stránok.
 - `src/fixtures/test.ts` tie stránky pripraví a test ich dostane ako argument.
-- `src/data/users.ts` drží účty, produkty a údaje zákazníka.
+- `src/data/users.ts` drží účty, produkty a údaje zákazníka. `src/helpers/money.ts` z nich skladá texty cien a dane.
 - `tests/e2e` sú samotné scenáre.

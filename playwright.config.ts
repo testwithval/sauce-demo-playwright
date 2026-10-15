@@ -27,9 +27,10 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
     {
-      // Katalóg, košík a nákup štartujú už prihlásené.
+      // Všetko okrem prihlásenia štartuje už prihlásené.
       name: 'shop',
-      testMatch: /(?:cart|checkout)\.spec\.ts/,
+      testMatch: /\.spec\.ts/,
+      testIgnore: /login\.spec\.ts/,
       dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],
