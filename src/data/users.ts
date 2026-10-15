@@ -6,7 +6,10 @@ export type User = {
 export const users = {
   standard: { username: 'standard_user', password: 'secret_sauce' },
   locked: { username: 'locked_out_user', password: 'secret_sauce' },
+  unknown: { username: 'not_a_user', password: 'secret_sauce' },
 } satisfies Record<string, User>;
+
+export const rejectedPassword = 'not-the-password';
 
 export const products = {
   backpack: { name: 'Sauce Labs Backpack', price: 29.99 },
